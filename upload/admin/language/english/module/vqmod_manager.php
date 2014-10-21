@@ -8,6 +8,7 @@ $_['button_vqcache_dump']  = 'vqcache Dump';
 
 // Heading
 $_['heading_title']        = 'VQMod Manager';
+$_['heading_description']        = 'A powerful add-on GUI for managing VQMod scripts in OpenCart admin';
 
 // Columns
 $_['column_action']        = 'Install / Uninstall';

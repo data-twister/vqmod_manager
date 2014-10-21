@@ -45,7 +45,7 @@ class ControllerModuleVQModManager extends Controller {
 			// Upload VQMod
 			$this->vqmod_upload();
 		}
-
+$data = array();
 		// Language
 		$data = array_merge($data, $this->load->language('module/vqmod_manager'));
 
