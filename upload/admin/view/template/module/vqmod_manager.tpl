@@ -1,4 +1,5 @@
 <?php echo $header; ?>
+<?php echo $column_left; ?>
 <div id="content">
 <div class="breadcrumb">
   <?php foreach ($breadcrumbs as $breadcrumb) { ?>
