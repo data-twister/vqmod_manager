@@ -666,13 +666,11 @@ $data['footer'] = $this->load->controller('common/footer');
 		);
         }else{
 		$vqcache_files = array(
-			'vq2-system_engine_controller.php',
-			'vq2-system_engine_front.php',
 			'vq2-system_engine_loader.php',
 			'vq2-system_library_language.php',
 			'vq2-system_startup.php'
 		);
-                }
+               }
 		foreach ($vqcache_files as $vqcache_file) {
 			// Only return false if vqmod_opencart.xml_ isn't present (in case the user has disabled it) so they aren't locked out of VQMM
 			if (!is_file($this->vqcache_dir . $vqcache_file) && !is_file($this->vqmod_opencart_script . '_')) {
