@@ -35,11 +35,12 @@
 
                         <li class="active"><a data-toggle="tab" href="#tab-scripts"><?php echo $tab_scripts; ?></a></li>
                         <li class=""><a data-toggle="tab" href="#tab-settings"><?php echo $tab_settings; ?></a></li>
-                        <li class=""><a data-toggle="tab" href="#tab-error_log"><?php echo  $tab_error_log; ?></a></li>
+                        <li class=""><a data-toggle="tab" href="#tab-error"><?php echo  $tab_error_log; ?></a></li>
+                        <li class=""><a data-toggle="tab" href="#tab-about"><?php echo  $tab_about; ?></a></li>
                     </ul>
                     <div class="tab-content">
                         <?php if ($vqmod_is_installed == true) { ?>
-                        <div id="tab-scripts" class="active">
+                        <div id="tab-scripts" class="tab-pane active">
 
                             <div class="table-responsive">
                                 <table class="vqmm-list table table-bordered table-hover">
@@ -65,11 +66,14 @@
                                             <td class="center"><?php echo $vqmod['vqmver']; ?></td>
                                             <td class="center"><?php echo $vqmod['author']; ?></td>
                                             <td class="center"><?php echo $vqmod['status'] ?></td>
-                                            <td class="action"><?php foreach ($vqmod['action'] as $action) { ?>
-                                                [ <a class="action-link" href="<?php echo $action['href']; ?>"><?php echo $action['text']; ?></a> ]
-                                                <?php } ?></td>
+                                            <td class="action"><?php foreach ($vqmod['action'] as $action) { 
+                                                if($vqmod['status'] == 'Enabled'){?>
+                                                <a title="<?php echo $action['text']; ?>" class="btn btn-danger" data-toggle="tooltip" href="<?php echo $action['href']; ?>"><i class="fa fa-minus-circle"></i></a>
+                                                <?php  }else{
+                                                ?>
+                                                 <a title="<?php echo $action['text']; ?>" class="btn btn-success" data-toggle="tooltip" href="<?php echo $action['href']; ?>"><i class="fa fa-plus-circle" ></i></a><?php }} ?></td>
                                             <td class="action">
-                                                [ <a class="action-link" href="<?php echo $vqmod['delete'] ?>"><?php echo $text_delete; ?></a> ]</td>
+                                                <a title="<?php echo $text_delete; ?>" class="btn btn-danger" href="<?php echo $vqmod['delete'] ?>" data-toggle="tooltip"><i class="fa fa-trash-o"></i></a></td>
                                         </tr>
                                         <?php } ?>
                                         <?php } else { ?>
@@ -81,14 +85,14 @@
                                 </table>
                                 <table class="form table table-bordered table-hover">
                                     <tr>
-                                        <td class="text-left"><?php echo $entry_upload; ?>&nbsp;<input type="file" name="vqmod_file" /><input type="submit" name="upload" value="<?php echo $text_upload; ?>" /></td>
+                                        <td class="text-left"><?php echo $entry_upload; ?>&nbsp;<input data-toggle="tooltip" title="<?php echo $entry_upload; ?>" class="btn" type="file" name="vqmod_file" /><input class="button btn-success" type="submit" title="<?php echo $text_upload; ?>" name="upload" data-toggle="tooltip" value="<?php echo $text_upload; ?>" /></td>
                                     </tr>
                                 </table>
                             </div>           
                         </div>
 
                        
-                        <div id="tab-settings">
+                        <div id="tab-settings" class="tab-pane">
                          <div class="table-responsive">
                             <table class="form table table-bordered table-hover">
                                 <tr>
@@ -99,16 +103,16 @@
                                             <option><?php echo $vqcache_file; ?></option>
                                             <?php } ?>
                                         </select><br />
-                                        <a href="<?php echo $clear_vqcache; ?>" class="button"><span><?php echo $button_clear; ?></span></a>
+                                        <a href="<?php echo $clear_vqcache; ?>" class="btn btn-danger" data-toggle="tooltip"  title="<?php echo $button_clear; ?>"><span><i class="fa fa-trash-o"><?php echo ' '.$button_clear; ?></i></span></a>
                                         <?php if ($ziparchive) { ?>
-                                        <a href="<?php echo $download_vqcache; ?>" class="button"><span><?php echo $button_vqcache_dump; ?></span></a>
+                                        <a href="<?php echo $download_vqcache; ?>" class="btn btn-danger" data-toggle="tooltip"  title="<?php echo $button_vqcache_dump; ?>"><span><i class="fa fa-trash-o"><?php echo ' ' .$button_vqcache_dump; ?></i></span></a>
                                         <?php } ?>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td class="text-left"><?php echo $entry_backup; ?></td>
                                     <?php if ($ziparchive) { ?>
-                                    <td class="text-left"><a href="<?php echo $download_scripts; ?>" class="button"><span><?php echo $button_backup; ?></span></a></td>
+                                    <td class="text-left"><a data-toggle="tooltip" title="<?php echo $button_backup; ?>" href="<?php echo $download_scripts; ?>" class="btn btn-primary"><span><i class="fa fa-save"><?php echo ' ' .$button_backup; ?></i></span></a></td>
                                     <?php } else { ?>
                                     <td class="text-left"><?php echo $error_ziparchive; ?></td>
                                     <?php } ?>
@@ -129,18 +133,18 @@
                         </div>
                         </div>
                         
-                        <div id="tab-error">
+                        <div id="tab-error" class="tab-pane">
                              <div class="table-responsive">
                             <table class="form table table-bordered table-hover">
                                 <tr>
-                                    <td class="text-left"><textarea rows="20" cols="160" id="error-log"><?php echo $log; ?></textarea>
-                                        <div class="right"><?php if ($ziparchive) { ?><a href="<?php echo $download_log; ?>" class="button"><span><?php echo $button_download_log; ?></span></a><?php } ?> <a href="<?php echo $clear_log; ?>" class="button"><span><?php echo $button_clear; ?></span></a></div></td>
+                                    <td class="text-left"><textarea rows="20" cols="90" id="error-log"><?php echo $log; ?></textarea>
+                                        <div class="right"><?php if ($ziparchive) { ?><a data-toggle="tooltip" title="<?php echo $button_download_log; ?>" href="<?php echo $download_log; ?>" class="btn btn-primary"><span><i class="fa fa-save"><?php echo ' ' .$button_download_log; ?></i></span></a><?php } ?> <a data-toggle="tooltip" title="<?php echo $button_clear; ?>" href="<?php echo $clear_log; ?>" class="btn btn-danger"><span><i class="fa fa-trash-o"><?php echo ' ' .$button_clear; ?></i></span></a></div></td>
                                 </tr>
                             </table>
                         </div>
                         </div>
                         
-                        <div id="tab-about">
+                        <div id="tab-about" class="tab-pane">
                              <div class="table-responsive">
                             <table class="form table table-bordered table-hover">
                                 <tr>
@@ -153,19 +157,23 @@
                                 </tr>
                                 <tr>
                                     <td class="text-left"><?php echo $entry_website; ?></td>
-                                    <td class="text-left"><a class="about" href="http://opencarthelp.com" target="_blank">http://opencarthelp.com</a></td>
+                                    <td class="text-left"><a class="about" href="https://github.com/mithereal/vqmod_manager" target="_blank">https://github.com/mithereal/vqmod_manager</a></td>
                                 </tr>
                                 <tr>
                                     <td class="text-left"><?php echo $entry_ext_store; ?></td>
-                                    <td class="text-left"><a class="about" href="http://www.opencart.com/index.php?route=extension/extension/info&amp;extension_id=2969&amp;filter_username=rph" target="_blank">http://www.opencart.com/index.php?route=extension/extension/info&amp;extension_id=2969</a></td>
+                                    <td class="text-left"><a class="about" href="https://github.com/mithereal/vqmod_manager">https://github.com/mithereal/vqmod_manager</a></td>
                                 </tr>
                                 <tr>
                                     <td class="text-left"><?php echo $entry_forum; ?></td>
-                                    <td class="text-left"><a class="about" href="http://forum.opencart.com/viewtopic.php?t=36235" target="_blank">http://forum.opencart.com/viewtopic.php?t=36235</a></td>
+                                    <td class="text-left"><a class="" target="_blank"></a></td>
                                 </tr>
                                 <tr>
                                     <td class="text-left"><?php echo $entry_license; ?></td>
                                     <td class="text-left"><a class="about" href="http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode" target="_blank"><?php echo $vqmod_manager_license; ?></a></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-left"><?php echo $entry_attribution; ?></td>
+                                    <td class="text-left"><?php echo $text_attribution; ?></td>
                                 </tr>
                             </table>
                         </div>
@@ -211,4 +219,7 @@
             });
         </script>
 
+  <script type="text/javascript"><!--
+$('#tabs a:first').tab('show');
+//--></script>
        

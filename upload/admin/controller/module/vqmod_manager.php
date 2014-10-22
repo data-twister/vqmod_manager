@@ -20,6 +20,7 @@ class ControllerModuleVQModManager extends Controller {
 
 		// Paths and Files
 		$this->base_dir = substr_replace(DIR_SYSTEM, '/', -8);
+		$this->override_engine = is_file(DIR_SYSTEM . '/engine/factory.php');
 		$this->vqmod_dir = substr_replace(DIR_SYSTEM, '/vqmod/', -8);
 		$this->vqmod_script_dir = substr_replace(DIR_SYSTEM, '/vqmod/xml/', -8);
 		$this->vqcache_dir = substr_replace(DIR_SYSTEM, '/vqmod/vqcache/', -8);
@@ -656,15 +657,22 @@ $data['footer'] = $this->load->controller('common/footer');
 		}
 
 		// Check if vqcache files from vqmod_opencart.xml have been generated
+                if($this->override_engine){
+		$vqcache_files = array(
+			'vq2-system_modification_system_engine_action.php',
+			'vq2-system_modification_system_engine_loader.php',
+			'vq2-system_engine_factory.php',
+			'vq2-system_startup.php'
+		);
+        }else{
 		$vqcache_files = array(
 			'vq2-system_engine_controller.php',
 			'vq2-system_engine_front.php',
 			'vq2-system_engine_loader.php',
 			'vq2-system_library_language.php',
-			'vq2-system_library_template.php',
 			'vq2-system_startup.php'
 		);
-
+                }
 		foreach ($vqcache_files as $vqcache_file) {
 			// Only return false if vqmod_opencart.xml_ isn't present (in case the user has disabled it) so they aren't locked out of VQMM
 			if (!is_file($this->vqcache_dir . $vqcache_file) && !is_file($this->vqmod_opencart_script . '_')) {
