@@ -25,7 +25,7 @@ $_['entry_attribution']         = 'Atribuição:'; // Change
 $_['entry_author']         = 'Autor:'; // Change
 $_['entry_backup']         = 'Backup VQMod Scripts:';
 $_['entry_ext_store']      = 'Versão mais recente:';
-$_['entry_ext_version']    = 'VQMod Manager Version:';
+$_['entry_ext_version']    = 'Versão do VQMod Manager:';
 $_['entry_forum']          = 'OpenCart Forum Thread:';
 $_['entry_license']        = 'Licença:';
 $_['entry_upload']         = 'VQMod Script Upload:';
@@ -38,8 +38,8 @@ $_['highlight']            = '<span class="highlight">%s</span>';
 
 // VQMod Manager Use Errors
 $_['error_delete']         = 'Atenção: Não é possível excluir script VQMod!';
-$_['error_filetype']       = 'Atenção: Invalid filetype!  Please only upload .xml files.';
-$_['error_install']        = 'Atenção: Unable to install VQMod script!';
+$_['error_filetype']       = 'Atenção: Tipo de arquivo inválido! Por favor, só fazer upload de arquivos .xml.';
+$_['error_install']        = 'Atenção: Não é possível instalar script VQMod!';
 $_['error_invalid_xml']    = 'Atenção: VQMod script XML syntax is invalid!  Please contact the author for support.';
 $_['error_log_size']       = 'Atenção: Your VQMod error log is %sMBs.  The limit for VQMod Manager is 6MB.  You can download the error log by FTP or by clicking the \'Download Log\' button in the Error Log tab.  Otherwise consider clearing it.';
 $_['error_log_download']   = 'Atenção: No error logs available for download!';
