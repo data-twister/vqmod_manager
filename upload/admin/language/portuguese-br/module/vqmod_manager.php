@@ -40,9 +40,9 @@ $_['highlight']            = '<span class="highlight">%s</span>';
 $_['error_delete']         = 'Atenção: Não é possível excluir script VQMod!';
 $_['error_filetype']       = 'Atenção: Tipo de arquivo inválido! Por favor, só fazer upload de arquivos .xml.';
 $_['error_install']        = 'Atenção: Não é possível instalar script VQMod!';
-$_['error_invalid_xml']    = 'Atenção: VQMod script XML syntax is invalid!  Please contact the author for support.';
+$_['error_invalid_xml']    = 'Atenção: VQMod script XML sintaxe é invalida!  Entre em contato com o autor para suporte.';
 $_['error_log_size']       = 'Atenção: Your VQMod error log is %sMBs.  The limit for VQMod Manager is 6MB.  You can download the error log by FTP or by clicking the \'Download Log\' button in the Error Log tab.  Otherwise consider clearing it.';
-$_['error_log_download']   = 'Atenção: No error logs available for download!';
+$_['error_log_download']   = 'Atenção: Não há logs de erros disponíveis para download!';
 $_['error_moddedfile']     = 'Atenção: VQMod script attempts to mod file \'%s\' which does not appear to exist!';
 $_['error_move']           = 'Atenção: Unable to save file on server.  Please check directory permissions.';
 $_['error_permission']     = 'Atenção: You do not have permission to modify module VQMod Manager!';
@@ -52,12 +52,12 @@ $_['error_vqmod_opencart'] = 'Atenção: \'vqmod_opencart.xml\' is rquired for V
 // $_FILE Upload Errors
 $_['error_form_max_file_size']   = 'Atenção: VQMod script exceeds max allowable size!';
 $_['error_ini_max_file_size']    = 'Atenção: VQMod script exceeds max php.ini file size!';
-$_['error_no_temp_dir']          = 'Atenção: No temporary directory found!';
-$_['error_no_upload']            = 'Atenção: No file selected for upload!';
-$_['error_partial_upload']       = 'Atenção: Upload incomplete!';
-$_['error_php_conflict']         = 'Atenção: Unknown PHP conflict!';
-$_['error_unknown']              = 'Atenção: Unknown error!';
-$_['error_write_fail']           = 'Atenção: Failed to write VQMod script!';
+$_['error_no_temp_dir']          = 'Atenção: Diretório temporário não encontrado!';
+$_['error_no_upload']            = 'Atenção: Nenhum arquivo selecionado para upload!';
+$_['error_partial_upload']       = 'Atenção: Upload incompleto!';
+$_['error_php_conflict']         = 'Atenção: Conflito PHP desconhecido!';
+$_['error_unknown']              = 'Atenção: Erro desconhecido!';
+$_['error_write_fail']           = 'Atenção: Falha ao gravar script VQMod!';
 
 // VQMod Installation Errors
 $_['error_error_log_write']            = 'Unable to write to VQMod error log!  Please set "<span class="error-install">/vqmod</span>" directory permissions to 755 or 777 and try again.';
