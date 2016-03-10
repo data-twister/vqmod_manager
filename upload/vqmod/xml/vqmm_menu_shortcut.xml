@@ -14,7 +14,7 @@
 		</operation>
 		<operation error="skip">
 			<search position="before"><![CDATA[
-		$data['zone'] = $this->url->link('localisation/zone', 'token=' . $this->session->data['token'], 'SSL');
+		$data['zone'] = $this->url->link('localisation/zone', 'token=' . $this->session->data['token'], true);
 
 ]]></search>
 			<add><![CDATA[
