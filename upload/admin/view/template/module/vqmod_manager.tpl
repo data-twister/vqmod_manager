@@ -27,6 +27,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title"><i class="fa fa-pencil"></i> <?php echo $heading_description; ?></h3>
+                <div class="donation-info "><h4><?php echo $heading_donation_description; ?><a href="https://paypal.me/mithereal" target="_blank"> <?php echo $donation_description; ?></a></h4></div>
             </div>
             <div class="panel-body">
                 <form action="<?php echo $action; ?>" method="post" enctype="multipart/form-data" id="form">
@@ -38,6 +39,7 @@
                         <li class=""><a data-toggle="tab" href="#tab-error"><?php echo  $tab_error_log; ?></a></li>
                         <li class=""><a data-toggle="tab" href="#tab-about"><?php echo  $tab_about; ?></a></li>
                     </ul>
+
                     <div class="tab-content">
                         <?php if ($vqmod_is_installed == true) { ?>
                         <div id="tab-scripts" class="tab-pane active">
@@ -46,7 +48,7 @@
                                 <table class="vqmm-list table table-bordered table-hover">
                                     <thead>
                                         <tr>
-                                            <th class="left"><?php echo $column_file_name; ?><hr /><i><?php echo $column_id; ?></i></th>
+                                     <th class="left"><?php echo $column_file_name; ?><hr /><i><?php echo $column_id; ?></i></th>
                                     <th class="center"><?php echo $column_version; ?></th>
                                     <th class="center"><?php echo $column_vqmver; ?></th>
                                     <th class="center"><?php echo $column_author; ?></th>

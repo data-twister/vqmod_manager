@@ -21,8 +21,10 @@ $_['column_version']       = 'Version';
 $_['column_vqmver']        = 'VQMod Version';
 
 // Entry
-$_['entry_attribution']         = 'Attribution:'; // Change
-$_['entry_author']         = 'Author:'; // Change
+$_['donation_description']         = 'Donate to keep this extension alive, I am a homeless developer!!';
+$_['heading_donation_description']         = 'Donate:';
+$_['entry_attribution']         = 'Attribution:';
+$_['entry_author']         = 'Author:'; 
 $_['entry_backup']         = 'Backup VQMod Scripts:';
 $_['entry_ext_store']      = 'Latest Version:';
 $_['entry_ext_version']    = 'VQMod Manager Version:';
@@ -63,17 +65,17 @@ $_['error_write_fail']           = 'Warning: Failed to write VQMod script!';
 $_['error_error_log_write']            = 'Unable to write to VQMod error log!  Please set "<span class="error-install">/vqmod</span>" directory permissions to 755 or 777 and try again.';
 $_['error_error_logs_write']           = 'Unable to write to VQMod error log!  Please set "<span class="error-install">/vqmod/logs</span>" directory permissions to 755 or 777 and try again.';
 $_['error_opencart_version']           = 'OpenCart 1.5.x or later is required to use VQMod Manager!';
-$_['error_opencart_xml']               = 'Required file "<span class="error-install">/vqmod/xml/vqmod_opencart.xml</span>" does not appear to exist!  Please install the latest OpenCart-compatible version of VQMod from <a href="https://github.com/vqmod/vqmod/releases" target="_blank">https://github.com/vqmod/vqmod/releases</a> and try again.';
+$_['error_opencart_xml']               = 'Required file "<span class="error-install">/vqmod/xml/vqmod_opencart.xml</span>" does not appear to exist!  Please install the latest OpenCart-compatible version of VQMod from <a href="https://github.com/vqmod/vqmod/releases/tag/v2.6.1-opencart/tag/v2.6.1-opencart" target="_blank">https://github.com/vqmod/vqmod/releases/tag/v2.6.1-opencart/tag/v2.6.1-opencart</a> and try again.';
 $_['error_opencart_xml_disabled']      = 'Warning: "<span class="error-install">vqmod_opencart.xml</span>" is disabled!  VQMod scripts will not function!';
-$_['error_opencart_xml_version']       = 'You appear to be using a version of "<span class="error-install">vqmod_opencart.xml</span>" that is out-of-date for your OpenCart version!  Please install the latest OpenCart-compatible version of VQMod from <a href="https://github.com/vqmod/vqmod/releases" target="_blank">https://github.com/vqmod/vqmod/releases</a> and try again.';
-$_['error_vqcache_dir']                = 'Required directory "<span class="error-install">/vqmod/vqcache</span>" does not appear to exist!  Please install the latest OpenCart-compatible version of VQMod from <a href="https://github.com/vqmod/vqmod/releases" target="_blank">https://github.com/vqmod/vqmod/releases</a> and try again.';
+$_['error_opencart_xml_version']       = 'You appear to be using a version of "<span class="error-install">vqmod_opencart.xml</span>" that is out-of-date for your OpenCart version!  Please install the latest OpenCart-compatible version of VQMod from <a href="https://github.com/vqmod/vqmod/releases/tag/v2.6.1-opencart/tag/v2.6.1-opencart" target="_blank"https://github.com/vqmod/vqmod/releases/tag/v2.6.1-opencart/tag/v2.6.1-opencart</a> and try again.';
+$_['error_vqcache_dir']                = 'Required directory "<span class="error-install">/vqmod/vqcache</span>" does not appear to exist!  Please install the latest OpenCart-compatible version of VQMod from <a href="https://github.com/vqmod/vqmod/releases/tag/v2.6.1-opencart" target="_blank">https://github.com/vqmod/vqmod/releases/tag/v2.6.1-opencart</a> and try again.';
 $_['error_vqcache_write']              = 'Unable to write to "<span class="error-install">/vqmod/vqcache</span>" directory!  Set permissions to 755 or 777 and try again.';
 $_['error_vqcache_files_missing']      = 'VQMod does not appear to be properly generating vqcache files!';
-$_['error_vqmod_core']                 = 'Required file "<span class="error-install">vqmod.php</span>" is missing!  Please install the latest OpenCart-compatible version of VQMod from <a href="https://github.com/vqmod/vqmod/releases" target="_blank">https://github.com/vqmod/vqmod/releases</a> and try again.';
+$_['error_vqmod_core']                 = 'Required file "<span class="error-install">vqmod.php</span>" is missing!  Please install the latest OpenCart-compatible version of VQMod from <a href="https://github.com/vqmod/vqmod/releases/tag/v2.6.1-opencart" target="_blank">https://github.com/vqmod/vqmod/releases/tag/v2.6.1-opencart</a> and try again.';
 $_['error_vqmod_dir']                  = 'The "<span class="error-install">/vqmod</span>" directory does not appear to exist!';
-$_['error_vqmod_install_link']         = 'VQMod does not appear to have been integrated with OpenCart!  Please run the VQMod installer at <a href="%1$s">%1$s</a>.  If you have previously run the installer ensure that you are using the latest version of VQMod found at <a href="https://github.com/vqmod/vqmod/releases" target="_blank">https://github.com/vqmod/vqmod/releases</a>.';
-$_['error_vqmod_opencart_integration'] = 'VQMod does not appear to have been integrated with OpenCart!  Please install the latest OpenCart-compatible version of VQMod from <a href="https://github.com/vqmod/vqmod/releases" target="_blank">https://github.com/vqmod/vqmod/releases</a> and try again.';
-$_['error_vqmod_script_dir']           = 'Required directory "<span class="error-install">/vqmod/xml</span>" does not appear to exist!  Please install the latest OpenCart-compatible version of VQMod from <a href="https://github.com/vqmod/vqmod/releases" target="_blank">https://github.com/vqmod/vqmod/releases</a> and try again.';
+$_['error_vqmod_install_link']         = 'VQMod does not appear to have been integrated with OpenCart!  Please run the VQMod installer at <a href="%1$s">%1$s</a>.  If you have previously run the installer ensure that you are using the latest version of VQMod found at <a href="https://github.com/vqmod/vqmod/releases/tag/v2.6.1-opencart" target="_blank">https://github.com/vqmod/vqmod/releases/tag/v2.6.1-opencart</a>.';
+$_['error_vqmod_opencart_integration'] = 'VQMod does not appear to have been integrated with OpenCart!  Please install the latest OpenCart-compatible version of VQMod from <a href="https://github.com/vqmod/vqmod/releases/tag/v2.6.1-opencart" target="_blank">https://github.com/vqmod/vqmod/releases/tag/v2.6.1-opencart</a> and try again.';
+$_['error_vqmod_script_dir']           = 'Required directory "<span class="error-install">/vqmod/xml</span>" does not appear to exist!  Please install the latest OpenCart-compatible version of VQMod from <a href="https://github.com/vqmod/vqmod/releases/tag/v2.6.1-opencart" target="_blank">https://github.com/vqmod/vqmod/releases/tag/v2.6.1-opencart</a> and try again.';
 $_['error_vqmod_script_write']         = 'Unable to write to "<span class="error-install">/vqmod/xml</span>" directory!  Please set directory permissions to 755 or 777 and try again.';
 
 // VQMod Manager Dependency Errors
@@ -110,7 +112,7 @@ $_['tab_scripts']           = 'VQMod Scripts';
 
 // Text
 $_['text_autodetect']       = 'VQMod appears to be installed at the following path.  Press Save to confirm path and complete installation.';
-$_['text_autodetect_fail']  = 'Unable to detect VQMod installation.  Please download and install the <a href="https://github.com/vqmod/vqmod/releases" target="_blank">latest version</a> or enter the non-standard server installation path.';
+$_['text_autodetect_fail']  = 'Unable to detect VQMod installation.  Please download and install the <a href="https://github.com/vqmod/vqmod/releases/tag/v2.6.1-opencart" target="_blank">latest version</a> or enter the non-standard server installation path.';
 $_['text_cachetime']        = '%s seconds';
 $_['text_delete']           = 'Delete';
 $_['text_disabled']         = 'Disabled';

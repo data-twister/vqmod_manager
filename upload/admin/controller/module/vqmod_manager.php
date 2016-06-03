@@ -39,6 +39,9 @@ class ControllerModuleVQModManager extends Controller {
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
+
+		$this->document->addStyle('view/stylesheet/vqmod_manager.css');
+
 		$this->load->model('setting/setting');
 
 		if ($this->request->server['REQUEST_METHOD'] == 'POST' && isset($this->request->post['upload'])) {
@@ -305,8 +308,7 @@ $data = array();
 $data['header'] = $this->load->controller('common/header');
 $data['column_left'] = $this->load->controller('common/column_left');
 $data['footer'] = $this->load->controller('common/footer');
-		// Stylesheet
-		$this->document->addStyle('view/stylesheet/vqmod_manager.css');
+
                 $this->response->setOutput($this->load->view('module/vqmod_manager.tpl', $data));
 
 		
