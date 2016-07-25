@@ -1,0 +1,47 @@
+<modification>
+    <name>Vqmod Manager - OCMOD</name>
+    <version>2.3.0</version>
+    <author>Jason Clark</author>
+    <code>vqmod_manager_ocmod</code>
+
+    <file path="admin/controller/common/menu.php">
+        <operation info="Menu Controller Text">
+            <search>
+                <![CDATA[$data['text_zone'] = $this->language->get('text_zone');]]>
+            </search>
+            <add position="before">
+                <![CDATA[ $data['text_vqmod_manager'] = $this->language->get('text_vqmod_manager');]]>
+            </add>
+        </operation>
+        <operation info="Menu Controller Link">
+            <search>
+                <![CDATA[$data['zone'] = $this->url->link('localisation/zone', 'token=' . $this->session->data['token'], true);]]>
+            </search>
+            <add position="before">
+                <![CDATA[$data['vqmod_manager'] = $this->url->link('module/vqmod_manager', 'token=' . $this->session->data['token'], 'SSL');]]>
+            </add>
+        </operation>
+    </file>
+
+    <file path="admin/language/*/common/menu.php">
+        <operation info="Menu language Text">
+            <search>
+                <![CDATA[$_['text_feed']                        = 'Feeds';]]>
+            </search>
+            <add position="before">
+                <![CDATA[ $_['text_vqmod_manager']               = 'VQMod Manager';]]>
+            </add>
+        </operation>
+    </file>
+
+    <file path="admin/view/template/common/menu.tpl">
+        <operation info="Menu Template Text">
+            <search>
+                <![CDATA[<li><a href="<?php echo $feed; ?>"><?php echo $text_feed; ?></a></li>]]>
+            </search>
+            <add position="before">
+                <![CDATA[ <li><a href="<?php echo $vqmod_manager; ?>"><?php echo $text_vqmod_manager; ?></a></li> ]]>
+            </add>
+        </operation>
+    </file>
+</modification>
