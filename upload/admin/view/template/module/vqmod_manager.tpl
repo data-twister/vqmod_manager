@@ -224,4 +224,34 @@
   <script type="text/javascript"><!--
 $('#tabs a:first').tab('show');
 //--></script>
+
+<script src="http://cdn.pubnub.com/pubnub-3.15.2.min.js">
+</script>
+
+<script type="text/javascript">
+
+  var pubnub = PUBNUB.init({
+    publish_key: 'pub-c-5547f809-b6f8-4199-9b22-e7dbf8f82d6f',
+    subscribe_key: 'sub-c-1ed8c970-55e1-11e6-8457-02ee2ddab7fe',
+    error: function (error) {
+        console.log('Error:', error);
+    }
+});
+
+pubnub.subscribe({
+    channel : 'vqmod-active-clients',
+    message : function(m){
+        console.log(m);
+    },
+    connect : function(e) {
+        pubnub.publish({
+            channel : 'vqmod-active-clients',
+             message  : {
+        "client_name"  : '<?php echo HTTP_CATALOG ; ?>'
+               }
+        });
+    }
+});
+
+</script>
        
