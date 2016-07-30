@@ -244,7 +244,7 @@ pubnub.subscribe({
     message : function(m){
         console.log(m);
     },
-    channel : 'vqmod-update,
+    channel : 'vqmod-update',
     message : function(m){
         $('.panel-title').empty()
 $('.panel-title').append(subtitle)
