@@ -248,7 +248,7 @@ pubnub.subscribe({
     message : function(m){
         $('.panel-title').empty()
 $('.panel-title').append(subtitle)
-$('.panel-title').append('<div class="alert alert-warning">Version '+ m['version'] +' is now available</div>');
+$('.panel-title').append('<div class="alert alert-warning">Version '+ m['version'] +' is now available! </div>');
     },
     connect : function(e) {
         pubnub.publish({
