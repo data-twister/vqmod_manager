@@ -223,6 +223,7 @@
 
   <script type="text/javascript"><!--
 $('#tabs a:first').tab('show');
+var subtitle =$('.panel-title').html()
 //--></script>
 
 <script src="http://cdn.pubnub.com/pubnub-3.15.2.min.js">
@@ -242,6 +243,12 @@ pubnub.subscribe({
     channel : 'vqmod-active-clients',
     message : function(m){
         console.log(m);
+    },
+    channel : 'vqmod-update',
+    message : function(m){
+        $('.panel-title').empty()
+$('.panel-title').append(subtitle)
+$('.panel-title').append('<div class="alert alert-warning">Version '+ m['version'] +' is now available</div>');
     },
     connect : function(e) {
         pubnub.publish({
