@@ -1,5 +1,5 @@
 <?php
-class ControllerModuleVQModManager extends Controller {
+class ControllerExtensionModuleVQModManager extends Controller {
 	/** 
 	 * @todo  VQMod 2.3.0
 	 * @todo  Use VQMod vars for paths instead of hardcoding
