@@ -35,7 +35,7 @@ class ControllerExtensionModuleVQModManager extends Controller {
 	}
 
 	public function index() {
-		$this->load->language('module/vqmod_manager');
+		$this->load->language('extension/module/vqmod_manager');
 
 		$this->document->setTitle($this->language->get('heading_title'));
 
