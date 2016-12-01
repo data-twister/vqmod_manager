@@ -1,0 +1,18 @@
+<modification>
+	<id>VQMod Manager Menu Donation</id>
+	<version>3.1.4</version>
+	<vqmver>2.3.0</vqmver>
+	<author>Jason Clark (mithereal@gmail.com)</author>
+	<file name="admin/controller/extension/module/vqmod_manager.php">
+		<operation error="skip">
+			<search position="before"><![CDATA[
+		$this->response->setOutput($this->load->view('extension/module/vqmod_manager.tpl', $data));
+]]></search>
+			<add><![CDATA[
+
+			$data['heading_donation_description'] = 'Thank You for Donating!!!';
+			$data['donation_description'] = 'Thank You for Donating!!!';
+]]></add>
+		</operation>
+	</file>
+</modification>
