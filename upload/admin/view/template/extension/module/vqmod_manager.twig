@@ -1,0 +1,322 @@
+{{ header }}{{ column_left }}
+<div id="content">
+    <div class="page-header">
+        <div class="container-fluid">
+            <div class="pull-right">
+                <button type="submit" onclick="$('#form').submit();" form="form-module" data-toggle="tooltip"
+                        title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+                <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i
+                            class="fa fa-reply"></i></a>
+            </div>
+
+            <ul class="breadcrumb">
+                {% for breadcrumb in breadcrumbs %}
+                    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+
+
+    <div class="container-fluid">
+        {% if error_warning %}
+            <div class="alert alert-danger"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+                <button type="button" class="close" data-dismiss="alert">&times;</button>
+            </div>
+        {% endif %}
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><i class="fa fa-pencil"></i> {{ heading_description }}</h3>
+                <div class="donation-info "><h4>{{ heading_donation_description }}
+                        <a href="https://paypal.me/mithereal" target="_blank"> {{ donation_description }}</a></h4></div>
+            </div>
+            <div class="panel-body">
+                <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form">
+
+                    <ul class="nav nav-tabs">
+
+                        <li class="active"><a data-toggle="tab" href="#tab-scripts">{{ tab_scripts }}</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab-settings">{{ tab_settings }}</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab-error">{{ tab_error_log }}</a></li>
+                        <li class=""><a data-toggle="tab" href="#tab-about">{{ tab_about }}</a></li>
+                    </ul>
+
+                    <div class="tab-content">
+
+                        {% if vqmod_is_installed %}
+                            <div id="tab-scripts" class="tab-pane active">
+
+                                <div class="table-responsive">
+                                    <table class="vqmm-list table table-bordered table-hover">
+                                        <thead>
+                                        <tr>
+                                            <th class="left">{{ column_file_name }}
+                                                <hr/>
+                                                <i>{{ column_id }}</i></th>
+                                            <th class="center">{{ column_version }}</th>
+                                            <th class="center">{{ column_vqmver }}</th>
+                                            <th class="center">{{ column_author }}</th>
+                                            <th class="center">{{ column_status }}</th>
+                                            <th class="center">{{ column_action }}</th>
+                                            <th class="center">{{ column_delete }}</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        {% if vqmods %}
+
+                                            {% for vqmod in vqmods %}
+
+                                                {% set class = 'row-odd' %}
+
+                                                <tr class="{{ class }} ">
+                                                    <td class="left"><strong>{{ vqmod['file_name'] }}</strong><br/>
+                                                        <div class="description">{{ vqmod['id'] }}
+                                                            <br/>{{ vqmod['invalid_xml'] }}</div>
+                                                    </td>
+                                                    <td class="center">{{ vqmod['version'] }}</td>
+                                                    <td class="center">{{ vqmod['vqmver'] }}</td>
+                                                    <td class="center">{{ vqmod['author'] }}</td>
+                                                    <td class="center">{{ vqmod['status'] }}</td>
+                                                    <td class="action">
+                                                        {% for action in vqmod['action'] %}
+
+                                                            {% if vqmod['status'] == 'Enabled' %}
+
+                                                                <a title="{{ action['text'] }}" class="btn btn-danger"
+                                                                   data-toggle="tooltip" href="{{ action['href'] }}"><i
+                                                                            class="fa fa-minus-circle"></i></a>
+                                                            {% else %}
+                                                                <a title="{{ action['text'] }}" class="btn btn-success"
+                                                                   data-toggle="tooltip" href="{{ action['href'] }}"><i
+                                                                            class="fa fa-plus-circle"></i></a>
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </td>
+                                                    <td class="action">
+                                                        <a title="{{ text_delete }}" class="btn btn-danger"
+                                                           href="{{ vqmod['delete'] }}" data-toggle="tooltip"><i
+                                                                    class="fa fa-trash-o"></i></a></td>
+                                                </tr>
+                                            {% endfor %}
+                                        {% else %}
+                                            <tr>
+                                                <td class="center" colspan="7">{{ text_no_results }}</td>
+                                            </tr>
+                                        {% endif %}
+                                        </tbody>
+                                    </table>
+                                    <table class="form table table-bordered table-hover">
+                                        <tr>
+                                            <td class="text-left">{{ entry_upload }}&nbsp;<input data-toggle="tooltip"
+                                                                                                 title="{{ entry_upload }}"
+                                                                                                 class="btn" type="file"
+                                                                                                 name="vqmod_file"/><input
+                                                        class="button btn-success" type="submit"
+                                                        title="{{ text_upload }}" name="upload" data-toggle="tooltip"
+                                                        value="{{ text_upload }}"/></td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+
+                            <div id="tab-settings" class="tab-pane">
+                                <div class="table-responsive">
+                                    <table class="form table table-bordered table-hover">
+                                        <tr>
+                                            <td class="text-left">{{ entry_vqcache }}<br/><span
+                                                        class="help">{{ text_vqcache_help }} </span></td>
+                                            <td class="text-left">
+                                                <select multiple="multiple" size="7" id="vqcache">
+                                                    {% for vqcache_file in vqcache %}
+
+                                                        <option>{{ vqcache_file }}</option>
+                                                    {% endfor %}
+                                                </select><br/>
+                                                <a href="{{ clear_vqcache }}" class="btn btn-danger"
+                                                   data-toggle="tooltip" title="{{ button_clear }}"><span><i
+                                                                class="fa fa-trash-o">{{ button_clear }}</i></span></a>
+                                                <?php if ($ziparchive) { ?>
+                                                <a href="{{ download_vqcache }}" class="btn btn-danger"
+                                                   data-toggle="tooltip" title="{{ button_vqcache_dump }}"><span><i
+                                                                class="fa fa-trash-o">{{ button_vqcache_dump }}</i></span></a>
+                                                <?php } ?>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">{{ entry_backup }}</td>
+                                            {% if ziparchive %}
+                                                <td class="text-left"><a data-toggle="tooltip"
+                                                                         title="{{ button_backup }}"
+                                                                         href="{{ download_scripts }}"
+                                                                         class="btn btn-primary"><span><i
+                                                        class="fa fa-save">{{ $button_backup }}</i></span></a></td>
+                                            {% else %}
+                                            <td class="text-left">{{ error_ziparchive }}</td>
+                                            {% endif %}
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">{{ entry_vqmod_path }}</td>
+                                            <td class="text-left">{{ vqmod_path }}</td>
+                                        </tr>
+
+                                        {% if vqmod_vars %}
+                                            {% for vqmod_var in vqmod_vars %}
+                                                <tr>
+                                                    <td class="text-left">{{ vqmod_var['setting'] }}</td>
+                                                    <td class="text-left">{{ vqmod_var['value'] }}</td>
+                                                </tr>
+                                            {% endfor %}
+
+                                        {% endif %}
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div id="tab-error" class="tab-pane">
+                                <div class="table-responsive">
+                                    <table class="form table table-bordered table-hover">
+                                        <tr>
+                                            <td class="text-left"><textarea rows="20" cols="90"
+                                                                            id="error-log">{{ log }}</textarea>
+                                                <div class="right">
+                                                    {% if ziparchive %}
+                                                        <a data-toggle="tooltip" title="{{ button_download_log }}"
+                                                           href="{{ download_log }}" class="btn btn-primary"><span><i
+                                                                        class="fa fa-save">{{ button_download_log }}</i></span></a>
+                                                    {% endif %}
+                                                    <a data-toggle="tooltip" title="{{ button_clear }}"
+                                                       href="{{ clear_log }}" class="btn btn-danger"><span><i
+                                                                    class="fa fa-trash-o">{{ button_clear }}</i></span></a>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div id="tab-about" class="tab-pane">
+                                <div class="table-responsive">
+                                    <table class="form table table-bordered table-hover">
+                                        <tr>
+                                            <td class="text-left">{{ entry_ext_version }}</td>
+                                            <td class="text-left"><{{ vqmod_manager_version }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">{{ entry_author }}</td>
+                                            <td class="text-left">{{ vqmod_manager_author }}</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">{{ entry_website }}</td>
+                                            <td class="text-left"><a class="about"
+                                                                     href="https://github.com/mithereal/vqmod_manager"
+                                                                     target="_blank">https://github.com/mithereal/vqmod_manager</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">{{ entry_ext_store }}</td>
+                                            <td class="text-left"><a class="about"
+                                                                     href="https://github.com/mithereal/vqmod_manager">https://github.com/mithereal/vqmod_manager</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">{{ entry_forum }}</td>
+                                            <td class="text-left"><a class="" target="_blank"></a></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">{{ entry_license }}</td>
+                                            <td class="text-left"><a class="about"
+                                                                     href="http://creativecommons.org/licenses/by-nc-sa/3.0/legalcode"
+                                                                     target="_blank">{{ vqmod_manager_license }}</a>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="text-left">{{ entry_attribution }}</td>
+                                            <td class="text-left">{{ text_attribution }}</td>
+                                        </tr>
+                                    </table>
+                                </div>
+                            </div>
+
+                        {% else %}
+                            <span>{{ vqmod_installation_error }}</span>
+                        {% endif %}
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Confirm Delete
+        $('a').click(function () {
+            if ($(this).attr('href') != null && $(this).attr('href').indexOf('delete', 1) != -1) {
+                if (!confirm('<?php echo $warning_vqmod_delete; ?>')) {
+                    return false;
+                }
+            }
+        });
+
+        // Confirm vqmod_opencart.xml Uninstall
+        $('a').click(function () {
+            if ($(this).attr('href') != null && $(this).attr('href').indexOf('vqmod_opencart', 1) != -1 && $(this).attr('href').indexOf('uninstall', 1) != -1) {
+                if (!confirm('<?php echo $warning_required_uninstall; ?>')) {
+                    return false;
+                }
+            }
+        });
+
+        // Confirm vqmod_opencart.xml Delete
+        $('a').click(function () {
+            if ($(this).attr('href') != null && $(this).attr('href').indexOf('vqmod_opencart', 1) != -1 && $(this).attr('href').indexOf('delete', 1) != -1) {
+                if (!confirm('<?php echo $warning_required_delete; ?>')) {
+                    return false;
+                }
+            }
+        });
+    });
+</script>
+
+<script type="text/javascript"><!--
+    $('#tabs a:first').tab('show');
+    var subtitle = $('.panel-title').html()
+    //--></script>
+
+<script src="http://cdn.pubnub.com/pubnub-3.15.2.min.js">
+</script>
+
+<script type="text/javascript">
+
+    var pubnub = PUBNUB.init({
+        publish_key: 'pub-c-5547f809-b6f8-4199-9b22-e7dbf8f82d6f',
+        subscribe_key: 'sub-c-1ed8c970-55e1-11e6-8457-02ee2ddab7fe',
+        error: function (error) {
+            console.log('Error:', error);
+        }
+    });
+
+    pubnub.subscribe({
+        channel: 'vqmod-active-clients',
+        message: function (m) {
+            console.log(m);
+        },
+        channel: 'vqmod-update',
+        message: function (m) {
+            $('.panel-title').empty()
+            $('.panel-title').append(subtitle)
+            $('.panel-title').append('<div class="alert alert-warning">Version ' + m['version'] + ' is now available!</div>');
+        },
+        connect: function (e) {
+            pubnub.publish({
+                channel: 'vqmod-active-clients',
+                message: {
+                    "client_name": '<?php echo HTTP_CATALOG ; ?>'
+                }
+            });
+        }
+    });
+
+</script>
+       
