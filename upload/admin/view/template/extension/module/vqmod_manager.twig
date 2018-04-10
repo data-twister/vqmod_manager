@@ -1,5 +1,4 @@
 {{ header }}{{ column_left }}
-
 <div id="content">
     <div class="page-header">
         <div class="container-fluid">
@@ -138,11 +137,11 @@
                                                 <a href="{{ clear_vqcache }}" class="btn btn-danger"
                                                    data-toggle="tooltip" title="{{ button_clear }}"><span><i
                                                                 class="fa fa-trash-o">{{ button_clear }}</i></span></a>
-                                                <?php if ($ziparchive) { ?>
+                                                {% if ziparchive %}
                                                 <a href="{{ download_vqcache }}" class="btn btn-danger"
                                                    data-toggle="tooltip" title="{{ button_vqcache_dump }}"><span><i
                                                                 class="fa fa-trash-o">{{ button_vqcache_dump }}</i></span></a>
-                                                <?php } ?>
+                                                {% endif %}
                                             </td>
                                         </tr>
                                         <tr>
