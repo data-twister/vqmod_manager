@@ -71,32 +71,32 @@
                                                 {% set class = 'row-odd' %}
 
                                                 <tr class="{{ class }} ">
-                                                    <td class="left"><strong>{{ vqmod['file_name'] }}</strong><br/>
-                                                        <div class="description">{{ vqmod['id'] }}
+                                                    <td class="left"><strong>{{ vqmod.file_name }}</strong><br/>
+                                                        <div class="description">{{ vqmod.id }}
                                                             <br/>{{ vqmod['invalid_xml'] }}</div>
                                                     </td>
-                                                    <td class="center">{{ vqmod['version'] }}</td>
-                                                    <td class="center">{{ vqmod['vqmver'] }}</td>
-                                                    <td class="center">{{ vqmod['author'] }}</td>
-                                                    <td class="center">{{ vqmod['status'] }}</td>
+                                                    <td class="center">{{ vqmod.version }}</td>
+                                                    <td class="center">{{ vqmod.vqmver }}</td>
+                                                    <td class="center">{{ vqmod.author }}</td>
+                                                    <td class="center">{{ vqmod.status }}</td>
                                                     <td class="action">
-                                                        {% for action in vqmod['action'] %}
+                                                        {% for action in vqmod.action %}
 
-                                                            {% if vqmod['status'] == 'Enabled' %}
+                                                            {% if vqmod.status == 'Enabled' %}
 
-                                                                <a title="{{ action['text'] }}" class="btn btn-danger"
-                                                                   data-toggle="tooltip" href="{{ action['href'] }}"><i
+                                                                <a title="{{ action.text }}" class="btn btn-danger"
+                                                                   data-toggle="tooltip" href="{{ action.href }}"><i
                                                                             class="fa fa-minus-circle"></i></a>
                                                             {% else %}
-                                                                <a title="{{ action['text'] }}" class="btn btn-success"
-                                                                   data-toggle="tooltip" href="{{ action['href'] }}"><i
+                                                                <a title="{{ action.text }}" class="btn btn-success"
+                                                                   data-toggle="tooltip" href="{{ action.href }}"><i
                                                                             class="fa fa-plus-circle"></i></a>
                                                             {% endif %}
                                                         {% endfor %}
                                                     </td>
                                                     <td class="action">
                                                         <a title="{{ text_delete }}" class="btn btn-danger"
-                                                           href="{{ vqmod['delete'] }}" data-toggle="tooltip"><i
+                                                           href="{{ vqmod.delete }}" data-toggle="tooltip"><i
                                                                     class="fa fa-trash-o"></i></a></td>
                                                 </tr>
                                             {% endfor %}
@@ -165,8 +165,8 @@
                                         {% if vqmod_vars %}
                                             {% for vqmod_var in vqmod_vars %}
                                                 <tr>
-                                                    <td class="text-left">{{ vqmod_var['setting'] }}</td>
-                                                    <td class="text-left">{{ vqmod_var['value'] }}</td>
+                                                    <td class="text-left">{{ vqmod_var.setting }}</td>
+                                                    <td class="text-left">{{ vqmod_var.value }}</td>
                                                 </tr>
                                             {% endfor %}
 
