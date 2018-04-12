@@ -314,7 +314,8 @@ class ControllerExtensionModuleVQModManager extends Controller
         $data['footer'] = $this->load->controller('common/footer');
 
 
-        $this->response->setOutput($this->load->view('extension/module/vqmod_manager', $data));
+        $this->response->setOutput($this->load->view('extension/module/vqmodmgr', $data));
+
 
 
     }

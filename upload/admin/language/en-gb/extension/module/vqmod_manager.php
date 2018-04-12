@@ -21,7 +21,7 @@ $_['column_version'] = 'Version';
 $_['column_vqmver'] = 'VQMod Version';
 
 // Entry
-$_['donation_description'] = 'Donate to keep this extension alive, I am a homeless developer!!';
+$_['donation_description'] = 'Donate to keep this extension alive';
 $_['heading_donation_description'] = 'Donate:';
 $_['entry_attribution'] = 'Attribution:';
 $_['entry_author'] = 'Author:';
